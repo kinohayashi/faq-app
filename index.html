@@ -1061,15 +1061,23 @@
             }
 
             container.innerHTML = '<h4 style="color: var(--primary-color); margin-bottom: 15px;">📌 関連するFAQ</h4>' +
-                results.map(item => `
+                results.map((item, index) => `
                     <div class="result-item">
                         <div class="result-score">関連度: ${Math.round(item.score * 100)}%</div>
                         <div class="result-question">${escapeHtml(item.faq.question)}</div>
                         <div class="result-answer">${escapeHtml(item.faq.answer)}</div>
                         <div class="category-badge">${escapeHtml(item.faq.category)}</div>
-                        ${apiKey ? `<button class="btn btn-secondary btn-small" onclick="generateAIResponse('${escapeHtml(item.faq.question)}', '${escapeHtml(item.faq.answer)}')" style="margin-top: 10px;">💡 AIで詳しく説明</button>` : ''}
+                        ${apiKey ? `<button class="btn btn-secondary btn-small" id="ai-btn-${index}" style="margin-top: 10px;">💡 AIで詳しく説明</button>` : ''}
                     </div>
                 `).join('');
+
+            // イベントハンドラーを動的に追加
+            results.forEach((item, index) => {
+                const btn = document.getElementById(`ai-btn-${index}`);
+                if (btn) {
+                    btn.addEventListener('click', () => generateAIResponse(item.faq.question, item.faq.answer));
+                }
+            });
 
             container.classList.add('show');
         }
