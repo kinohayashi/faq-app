@@ -176,153 +176,6 @@
             margin-top: 10px;
         }
 
-        .admin-panel {
-            background-color: var(--light-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #6d2d2d;
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #a68550;
-        }
-
-        .btn-danger {
-            background-color: #d9534f;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background-color: #c9302c;
-        }
-
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 12px;
-        }
-
-        .faq-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .alert {
-            padding: 12px 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .stat-number {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-        }
-
         .inquiry-section {
             background-color: white;
             padding: 20px;
@@ -340,7 +193,6 @@
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
-            flex-wrap: wrap;
         }
 
         .inquiry-input input {
@@ -350,12 +202,6 @@
             border: 2px solid var(--border-color);
             border-radius: 5px;
             font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-
-        .inquiry-input input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
         }
 
         .inquiry-input button {
@@ -366,19 +212,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
         .inquiry-input button:hover {
             background-color: #6d2d2d;
-        }
-
-        .results-container {
-            display: none;
-        }
-
-        .results-container.show {
-            display: block;
         }
 
         .result-item {
@@ -408,124 +245,40 @@
         .result-answer {
             color: #555;
             line-height: 1.6;
-            margin-bottom: 10px;
         }
 
-        .result-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .ai-response {
-            background-color: #f0f4ff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #4a90e2;
-            margin-top: 20px;
-        }
-
-        .ai-response h4 {
-            color: #4a90e2;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .ai-response-text {
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .loading {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .loading::after {
-            content: '';
-            animation: dots 1.5s infinite;
-        }
-
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            color: var(--primary-color);
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
             color: #999;
         }
 
-        .close-button:hover {
-            color: #333;
+        .stat-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--secondary-color);
         }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 20px;
-            }
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
 
-            .tabs {
-                overflow-x: auto;
-                flex-wrap: nowrap;
-            }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
 
-            .faq-question {
-                flex-wrap: wrap;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -536,16 +289,13 @@
     </header>
 
     <div class="container">
-        <!-- タブ切り替え -->
         <div class="tabs">
             <button class="tab-button active" data-tab="viewer">📖 FAQ を見る</button>
             <button class="tab-button" data-tab="inquiry">💬 質問する</button>
-            <button class="tab-button" data-tab="admin">⚙️ 管理画面</button>
         </div>
 
-        <!-- ビューアーモード -->
+        <!-- FAQ ビューアーモード -->
         <div id="viewer" class="content active">
-            <!-- 統計情報 -->
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number" id="total-faqs">0</div>
@@ -555,21 +305,12 @@
                     <div class="stat-number" id="total-categories">0</div>
                     <div class="stat-label">カテゴリー数</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="viewed-count">0</div>
-                    <div class="stat-label">閲覧済み</div>
-                </div>
             </div>
 
-            <!-- 検索機能 -->
             <div class="search-container">
                 <input type="text" class="search-box" id="search-input" placeholder="🔍 質問や内容から検索してください...">
             </div>
 
-            <!-- カテゴリーフィルター -->
-            <div class="tabs" id="category-tabs"></div>
-
-            <!-- FAQ一覧 -->
             <div id="faq-container" class="faq-list"></div>
         </div>
 
@@ -580,650 +321,172 @@
                 <p style="color: #666; margin-bottom: 15px;">わからないことを質問すると、蓄積されたFAQから関連する回答を自動で見つけます。</p>
 
                 <div class="inquiry-input">
-                    <input type="text" id="inquiry-input" placeholder="例）給与体系について教えてください / リモートワークは可能ですか？" >
-                    <button id="search-btn">検索</button>
+                    <input type="text" id="inquiry-input" placeholder="例）給与体系について教えてください / リモートワークは可能ですか？">
+                    <button onclick="searchQuery()">検索</button>
                 </div>
 
-                <div id="results-container" class="results-container"></div>
+                <div id="results-container"></div>
             </div>
-
-            <div id="ai-settings" style="background-color: var(--light-bg); padding: 15px; border-radius: 8px; margin-bottom: 20px; display: none;">
-                <h4 style="color: var(--primary-color); margin-bottom: 10px;">⚡ AI回答設定（オプション）</h4>
-                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Claude AIを使ってさらに詳しい回答を生成できます。APIキーを入力してください。</p>
-                <div style="display: flex; gap: 10px;">
-                    <input type="password" id="api-key-input" placeholder="Claude API キー（sk-で始まる）" style="flex: 1; padding: 10px; border: 2px solid var(--border-color); border-radius: 5px;">
-                    <button id="save-key-btn" class="btn btn-secondary">保存</button>
-                </div>
-                <p style="color: #999; font-size: 12px; margin-top: 10px;">※キーはブラウザに保存されます。アカウント設定から削除できます。</p>
-            </div>
-        </div>
-
-        <!-- 管理画面 -->
-        <div id="admin" class="content">
-            <div class="admin-panel">
-                <h2 style="color: var(--primary-color); margin-bottom: 20px;">FAQ を追加・編集・削除</h2>
-                <div id="admin-alert"></div>
-
-                <div class="form-group">
-                    <label>カテゴリー</label>
-                    <select id="admin-category">
-                        <option value="">選択してください</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>質問</label>
-                    <input type="text" id="admin-question" placeholder="質問を入力してください">
-                </div>
-
-                <div class="form-group">
-                    <label>回答</label>
-                    <textarea id="admin-answer" placeholder="回答を入力してください"></textarea>
-                </div>
-
-                <div class="button-group">
-                    <button class="btn btn-primary" id="add-faq-btn">追加</button>
-                    <button class="btn btn-secondary" id="reset-form-btn">リセット</button>
-                </div>
-            </div>
-
-            <h2 style="color: var(--primary-color); margin: 30px 0 20px;">FAQ 一覧（管理用）</h2>
-            <div id="admin-faq-container" class="faq-list"></div>
         </div>
     </div>
 
     <script>
-        // データ構造とサンプルデータ
-        const CATEGORIES = [
-            '会社概要', '待遇・福利厚生', '業務', '人間関係',
-            'システム・ツール', '安全・衛生', 'その他'
-        ];
+        const CATEGORIES = ['会社概要', '待遇・福利厚生', '業務', '人間関係', 'システム・ツール', '安全・衛生', 'その他'];
 
-        // サンプルFAQデータ（500件を生成）
+        let faqs = [];
+        let searchIndex = {};
+
         function generateSampleFAQs() {
-            const faqs = [];
-            const sampleQuestions = {
+            const sampleData = {
                 '会社概要': [
                     { q: 'キノッピの家とはどのような会社ですか？', a: 'キノッピの家は、障がい者向けのグループホーム・個別サポート付き住宅サービスを提供している企業です。' },
                     { q: '会社の歴史を教えてください', a: '当社は2015年に設立され、障がい者福祉分野で数多くの実績を上げています。' },
                     { q: '従業員数は何人ですか？', a: '現在、約150名の従業員が在籍しています。' },
                     { q: '本社はどこにありますか？', a: '本社は茨城県に位置しており、複数の拠点を全国に展開しています。' },
-                    { q: 'どのような事業をしていますか？', a: '障がい者向けのグループホーム運営とそれに伴う様々なサポートサービスを提供しています。' },
-                    { q: '会社のビジョンは何ですか？', a: '一人ひとりの可能性を引き出し、充実した生活をサポートすることです。' },
-                    { q: '社会貢献活動について教えてください', a: '地域との連携を大切にし、様々な社会貢献活動に取り組んでいます。' },
-                    { q: '上場しているのですか？', a: '現在は非上場企業です。' },
-                    { q: '取引先企業にはどのような企業がありますか？', a: '福祉関連の自治体や社会福祉法人と協力しています。' },
-                    { q: '今後の事業展開計画は？', a: '全国への拠点拡大と新しいサービスの開発を計画しています。' },
+                    { q: 'どのような事業をしていますか？', a: '障がい者向けのグループホーム運営とそれに伴う様々なサポートサービスを提供しています。' }
                 ],
                 '待遇・福利厚生': [
                     { q: '給与体系はどのようになっていますか？', a: '経験年数と職能に応じた階級別給与体系を採用しています。' },
                     { q: 'ボーナスはありますか？', a: 'はい、年2回のボーナスを支給しています。' },
                     { q: '有給休暇は何日ですか？', a: '初年度は10日、その後毎年増加します。' },
                     { q: '社会保険に加入できますか？', a: 'はい、健康保険、厚生年金、雇用保険に加入します。' },
-                    { q: 'アルバイト・契約社員の待遇は？', a: '契約内容に応じた給与体系となっており、福利厚生も一部対象です。' },
-                    { q: '家賃補助はありますか？', a: '条件を満たす場合、家賃補助制度があります。' },
-                    { q: '昇進・昇給のチャンスはありますか？', a: 'はい、年1回の人事評価に基づいて判定されます。' },
-                    { q: '育児休暇は取得できますか？', a: 'はい、法定通りの育児休暇を取得できます。' },
-                    { q: '介護休暇制度はありますか？', a: 'はい、介護休暇制度が整備されています。' },
-                    { q: 'スキルアップのための研修費用補助はありますか？', a: 'はい、対象となるセミナーや研修費用を補助しています。' },
-                    { q: '食堂や休憩室はありますか？', a: 'はい、社員用の食堂と休憩室が完備されています。' },
-                    { q: '交通費の補助はありますか？', a: '全額支給されます。' },
-                    { q: 'ストック・オプション制度はありますか？', a: '現在のところありません。' },
-                    { q: '退職金制度について教えてください', a: '勤続年数に応じた退職金制度があります。' },
-                    { q: '社員割引制度はありますか？', a: '一部の福利厚生施設で社員割引を利用できます。' },
+                    { q: '交通費の補助はありますか？', a: '全額支給されます。' }
                 ],
                 '業務': [
                     { q: '業務時間は何時から何時までですか？', a: '通常、9:00～17:30です。配置部門により異なる場合があります。' },
                     { q: 'リモートワークは可能ですか？', a: '部門や業務内容によりリモートワークが可能です。' },
                     { q: '研修制度はありますか？', a: 'はい、新入社員研修と職種別研修があります。' },
                     { q: 'OJTのサポートは充実していますか？', a: 'はい、先輩社員がサポート体制を整えています。' },
-                    { q: '転勤の可能性はありますか？', a: '本人の同意を前提に、キャリア形成のための配置転換があります。' },
-                    { q: '業務報告書の提出方法は？', a: '指定されたシステムに入力して管理しています。' },
-                    { q: '残業が多い部門はありますか？', a: '部門によって異なりますが、全体的には残業削減に取り組んでいます。' },
-                    { q: '休日出勤は可能ですか？', a: '業務の必要に応じて休日出勤をお願いする場合もあります。' },
-                    { q: '他部門への異動は可能ですか？', a: 'はい、本人希望と適性を考慮して異動が可能です。' },
-                    { q: 'テレワークの環境整備は？', a: 'VPN、セキュリティソフト、ノートパソコンなど必要な環境を整備しています。' },
-                    { q: '副業は認められていますか？', a: '会社の許可を得た上で、競合しない範囲での副業は可能です。' },
-                    { q: 'プロジェクト単位の業務割り当てはありますか？', a: 'はい、多くの業務がプロジェクト単位で進められます。' },
-                    { q: '業務改善の提案は評価されますか？', a: 'はい、積極的に受け付けており、採用されると評価に反映されます。' },
-                    { q: '国内・海外出張の機会はありますか？', a: '業務の必要に応じて出張があります。' },
-                    { q: '成果主義ですか、年功序列ですか？', a: '経験と成果の両方を評価する体系です。' },
+                    { q: '転勤の可能性はありますか？', a: '本人の同意を前提に、キャリア形成のための配置転換があります。' }
                 ],
                 'システム・ツール': [
                     { q: 'パソコンは支給されますか？', a: 'はい、業務内容に応じたパソコンを支給します。' },
-                    { q: 'メールアドレスの取得方法は？', a: '入社手続き時に管理部門から配布されます。' },
                     { q: 'VPN接続は必要ですか？', a: 'リモートワーク時はVPN接続が必須です。' },
-                    { q: 'システムのサポート窓口は？', a: 'IT部門が対応します。内線や専用メールで連絡できます。' },
-                    { q: 'パスワード変更の方法は？', a: 'システム管理画面から定期的な変更が必要です。' },
-                    { q: 'OSはWindowsですか、Macですか？', a: 'Windowsが標準ですが、職種により異なります。' },
-                    { q: 'セキュリティソフトは何を使用していますか？', a: '業界標準のセキュリティソフトを導入しています。' },
-                    { q: 'クラウドストレージは何を使っていますか？', a: 'SharePointとOneDriveを主に使用しています。' },
                     { q: 'ビデオ会議ツールは何を使用していますか？', a: 'Microsoft TeamsとZoomを使用しています。' },
                     { q: 'スマートフォンは支給されますか？', a: '職種によって支給の有無が異なります。' },
-                    { q: 'プリンタの使用方法は？', a: '部門ごとに設置されています。担当者に確認してください。' },
-                    { q: 'システムのダウンタイムはどのくらいですか？', a: '定期メンテナンス時以外はほぼ24時間稼働しています。' },
-                    { q: 'ラップトップを家に持ち帰れますか？', a: 'セキュリティポリシーに従って持ち帰り可能です。' },
-                    { q: 'バックアップは自動で取られていますか？', a: 'はい、重要なデータは自動でバックアップされます。' },
-                    { q: 'ファイルサーバーのクォータはありますか？', a: 'はい、割り当てられた容量内での使用です。' },
+                    { q: 'ファイルサーバーのクォータはありますか？', a: 'はい、割り当てられた容量内での使用です。' }
                 ],
                 '人間関係': [
                     { q: '社内の人間関係はどうですか？', a: '温かく、サポート的な文化が定着しています。' },
-                    { q: 'チームビルディング活動はありますか？', a: 'はい、年間を通じて様々なイベントを開催しています。' },
                     { q: 'ハラスメント相談窓口はありますか？', a: 'はい、コンプライアンス部門に相談できます。' },
                     { q: 'メンタルヘルスサポートはありますか？', a: 'はい、EAPプログラムを用意しています。' },
-                    { q: '上司との関係が悪い場合はどうすればいいですか？', a: 'HR部門またはハラスメント相談窓口に相談できます。' },
-                    { q: '社内の飲み会は強制ですか？', a: 'いいえ、参加は自由です。' },
                     { q: 'メンター制度はありますか？', a: 'はい、新入社員にはメンターが配置されます。' },
-                    { q: 'サークル活動はありますか？', a: 'はい、複数のサークルが活動しています。' },
-                    { q: '異なる部門との交流はありますか？', a: 'はい、定期的に交流の場を設けています。' },
-                    { q: 'ダイバーシティ&インクルージョンの取り組みは？', a: '多様な人材の採用と活躍を推進しています。' },
-                    { q: '女性管理職の比率は？', a: '徐々に増加しており、現在は全管理職の30%程度です。' },
-                    { q: 'LGBTQ+への対応は？', a: 'ポリシーに基づいて適切に対応しています。' },
-                    { q: '年齢層の構成はどのような感じですか？', a: '20代から60代まで幅広い年代が在籍しています。' },
-                    { q: '新入社員の退職率はどのくらいですか？', a: '業界平均と比較して低い水準です。' },
-                    { q: 'パワハラやセクハラの報告件数は？', a: 'ハラスメント防止に積極的に取り組んでいます。' },
+                    { q: 'ダイバーシティ&インクルージョンの取り組みは？', a: '多様な人材の採用と活躍を推進しています。' }
                 ],
                 '安全・衛生': [
                     { q: '健康診断はいつですか？', a: '年1回、指定の時期に実施します。' },
-                    { q: 'オフィスはどのような安全対策をしていますか？', a: '定期的な安全点検と防災訓練を実施しています。' },
-                    { q: 'コロナ対策について教えてください', a: '感染予防策を継続して実施しています。' },
                     { q: '労災保険に加入していますか？', a: 'はい、全従業員が加入しています。' },
-                    { q: '怪我をした場合は？', a: '速やかに管理部門に報告し、適切に対応します。' },
                     { q: 'AED（自動体外式除細動器）は設置されていますか？', a: 'はい、オフィス内に複数設置されています。' },
-                    { q: '防火管理体制は？', a: '防火管理者を配置し、定期訓練を実施しています。' },
-                    { q: '産業医のサポートは？', a: 'はい、産業医がメンタルヘルスを含めてサポートします。' },
                     { q: 'ストレスチェックは実施されていますか？', a: 'はい、年1回実施され、サポートが提供されます。' },
-                    { q: '健康的な食事をサポートしていますか？', a: '食堂のメニューに配慮があります。' },
-                    { q: 'フィットネスジムの利用補助はありますか？', a: '提携ジムで割引利用ができます。' },
-                    { q: '禁煙・喫煙について教えてください', a: 'オフィスは全面禁煙です。' },
-                    { q: 'アルコール関連の相談は？', a: 'EAPプログラムで相談できます。' },
-                    { q: '災害対策用の備蓄品はありますか？', a: 'はい、オフィスに備蓄品を保管しています。' },
-                    { q: 'オフィスの空気質はどのように管理されていますか？', a: '定期的にCO2濃度などを測定し、管理しています。' },
+                    { q: 'オフィスの空気質はどのように管理されていますか？', a: '定期的にCO2濃度などを測定し、管理しています。' }
                 ],
                 'その他': [
                     { q: '休日はいつですか？', a: '土日祝祭日が休日で、シフト勤務の場合は変動します。' },
                     { q: '年末年始の休暇は？', a: '12月29日～1月3日が通常の年末年始休暇です。' },
-                    { q: 'ゴールデンウィークの休暇は？', a: 'カレンダー通りの休暇となります。' },
-                    { q: 'お盆の休暇は？', a: '8月13日～16日が通常のお盆休暇です。' },
-                    { q: '特別休暇はありますか？', a: 'はい、慶事・弔事など特別な場合の休暇があります。' },
-                    { q: '結婚するときの休暇は？', a: '結婚休暇として数日の特別休暇があります。' },
-                    { q: '出産時の休暇制度は？', a: '産前産後休暇が法定通り取得できます。' },
-                    { q: 'ボランティア休暇はありますか？', a: '社会貢献活動に対する特別休暇を用意しています。' },
                     { q: 'キャリアチェンジは可能ですか？', a: 'はい、適性と希望を考慮して検討します。' },
-                    { q: '自己啓発のための時間は確保できますか？', a: '業務の範囲内で確保できます。' },
-                    { q: 'MBA取得などの高度な学位取得支援は？', a: '申請により支援を検討します。' },
                     { q: '社内表彰制度はありますか？', a: 'はい、優秀な成果を上げた社員を表彰しています。' },
-                    { q: '離職票の発行は早いですか？', a: 'はい、退職後速やかに発行します。' },
-                    { q: 'OB/OG訪問は可能ですか？', a: 'はい、採用担当にお問い合わせください。' },
-                    { q: '外部講演の機会はありますか？', a: '業績や専門知識に応じて機会があります。' },
+                    { q: 'OB/OG訪問は可能ですか？', a: 'はい、採用担当にお問い合わせください。' }
                 ]
             };
 
             let id = 1;
-            for (const category of CATEGORIES) {
-                const questions = sampleQuestions[category] || [];
-                for (let i = 0; i < questions.length; i++) {
+            for (const cat of CATEGORIES) {
+                const qs = sampleData[cat] || [];
+                for (const q of qs) {
                     faqs.push({
                         id: id++,
-                        category,
-                        question: questions[i].q,
-                        answer: questions[i].a
+                        category: cat,
+                        question: q.q,
+                        answer: q.a
                     });
                 }
             }
-
-            return faqs;
         }
 
-        // グローバル状態
-        let faqs = [];
-        let filteredFaqs = [];
-        let currentCategory = 'all';
-        let viewedCount = new Set();
-        let apiKey = localStorage.getItem('claude_api_key') || '';
-
-        // 初期化
-        function init() {
-            loadData();
-            filteredFaqs = [...faqs];
-            renderFAQs();
-            renderCategoryTabs();
-            renderAdminUI();
-            setupEventListeners();
-            updateStats();
-        }
-
-        // データロード
-        function loadData() {
-            if (!faqs || faqs.length === 0) {
-                faqs = generateSampleFAQs();
-            }
-        }
-
-        // データ保存
-        function saveData() {
-            // メモリ内に保持（ページリロード時は初期化されます）
-        }
-
-        // 統計情報更新
-        function updateStats() {
-            document.getElementById('total-faqs').textContent = faqs.length;
-            document.getElementById('total-categories').textContent = CATEGORIES.length;
-            document.getElementById('viewed-count').textContent = viewedCount.size;
-        }
-
-        // カテゴリータブのレンダリング
-        function renderCategoryTabs() {
-            const container = document.getElementById('category-tabs');
-            container.innerHTML = '';
-
-            const allBtn = document.createElement('button');
-            allBtn.className = 'tab-button active';
-            allBtn.textContent = '📁 すべて';
-            allBtn.dataset.category = 'all';
-            allBtn.addEventListener('click', (e) => filterByCategory('all', e.target));
-            container.appendChild(allBtn);
-
-            CATEGORIES.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = 'tab-button';
-                btn.textContent = cat;
-                btn.dataset.category = cat;
-                btn.addEventListener('click', (e) => filterByCategory(cat, e.target));
-                container.appendChild(btn);
-            });
-        }
-
-        // カテゴリーフィルター
-        function filterByCategory(category, target) {
-            currentCategory = category;
-            document.querySelectorAll('#category-tabs .tab-button').forEach(btn => btn.classList.remove('active'));
-            target.classList.add('active');
-
-            applyFilters();
-        }
-
-        // フィルター適用
-        function applyFilters() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            filteredFaqs = faqs.filter(faq => {
-                const matchesCategory = currentCategory === 'all' || faq.category === currentCategory;
-                const matchesSearch = faq.question.toLowerCase().includes(searchTerm) ||
-                                    faq.answer.toLowerCase().includes(searchTerm);
-                return matchesCategory && matchesSearch;
-            });
-            renderFAQs();
-        }
-
-        // FAQレンダリング
-        function renderFAQs() {
-            const container = document.getElementById('faq-container');
-            if (filteredFaqs.length === 0) {
-                container.innerHTML = '<div class="no-results">該当するFAQが見つかりません</div>';
-                return;
-            }
-
-            container.innerHTML = filteredFaqs.map(faq => `
-                <div class="faq-item" data-id="${faq.id}">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <div class="faq-question-text">${escapeHtml(faq.question)}</div>
-                        <div class="faq-toggle">▼</div>
-                    </div>
-                    <div class="faq-answer">
-                        ${escapeHtml(faq.answer)}
-                        <div class="category-badge">${escapeHtml(faq.category)}</div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // FAQ切り替え
-        function toggleFAQ(element) {
-            element.parentElement.classList.toggle('expanded');
-            const faqId = element.parentElement.dataset.id;
-            viewedCount.add(faqId);
-            updateStats();
-        }
-
-        // 管理画面のUI生成
-        function renderAdminUI() {
-            const categorySelect = document.getElementById('admin-category');
-            categorySelect.innerHTML = '<option value="">選択してください</option>' +
-                CATEGORIES.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-
-            renderAdminFAQList();
-        }
-
-        // 管理画面のFAQ一覧
-        function renderAdminFAQList() {
-            const container = document.getElementById('admin-faq-container');
-            container.innerHTML = faqs.map(faq => `
-                <div class="faq-item">
-                    <div class="faq-question" style="cursor: default;">
-                        <div>
-                            <div class="faq-question-text">${escapeHtml(faq.question)}</div>
-                            <div class="category-badge">${escapeHtml(faq.category)}</div>
-                        </div>
-                    </div>
-                    <div class="faq-answer" style="display: block;">
-                        ${escapeHtml(faq.answer)}
-                        <div class="faq-actions">
-                            <button class="btn btn-secondary btn-small" onclick="editFAQ(${faq.id})">編集</button>
-                            <button class="btn btn-danger btn-small" onclick="deleteFAQ(${faq.id})">削除</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // FAQ追加
-        function addFAQ() {
-            const category = document.getElementById('admin-category').value;
-            const question = document.getElementById('admin-question').value;
-            const answer = document.getElementById('admin-answer').value;
-
-            if (!category || !question || !answer) {
-                showAlert('すべてのフィールドを入力してください', 'error');
-                return;
-            }
-
-            const newFAQ = {
-                id: Math.max(...faqs.map(f => f.id), 0) + 1,
-                category,
-                question,
-                answer
-            };
-
-            faqs.push(newFAQ);
-            saveData();
-            showAlert('FAQを追加しました', 'success');
-            resetForm();
-            renderAdminFAQList();
-            updateStats();
-        }
-
-        // FAQ編集
-        function editFAQ(id) {
-            const faq = faqs.find(f => f.id === id);
-            if (faq) {
-                document.getElementById('admin-category').value = faq.category;
-                document.getElementById('admin-question').value = faq.question;
-                document.getElementById('admin-answer').value = faq.answer;
-                document.getElementById('add-faq-btn').textContent = '更新';
-                document.getElementById('add-faq-btn').onclick = () => {
-                    if (confirm('このFAQを更新しますか？')) {
-                        faq.category = document.getElementById('admin-category').value;
-                        faq.question = document.getElementById('admin-question').value;
-                        faq.answer = document.getElementById('admin-answer').value;
-                        saveData();
-                        showAlert('FAQを更新しました', 'success');
-                        resetForm();
-                        renderAdminFAQList();
-                        updateStats();
-                    }
-                };
-            }
-        }
-
-        // FAQ削除
-        function deleteFAQ(id) {
-            if (confirm('このFAQを削除しますか？')) {
-                faqs = faqs.filter(f => f.id !== id);
-                saveData();
-                showAlert('FAQを削除しました', 'success');
-                renderAdminFAQList();
-                updateStats();
-            }
-        }
-
-        // フォームリセット
-        function resetForm() {
-            document.getElementById('admin-category').value = '';
-            document.getElementById('admin-question').value = '';
-            document.getElementById('admin-answer').value = '';
-            document.getElementById('add-faq-btn').textContent = '追加';
-            document.getElementById('add-faq-btn').onclick = addFAQ;
-        }
-
-        // アラート表示
-        function showAlert(message, type) {
-            const alertDiv = document.getElementById('admin-alert');
-            alertDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-            setTimeout(() => {
-                alertDiv.innerHTML = '';
-            }, 3000);
-        }
-
-        // HTMLエスケープ
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // テキストから日本語・英数字を抽出
         function extractWords(text) {
-            const words = [];
-            const hiragana = text.match(/[぀-ゟ]+/g) || [];
-            const katakana = text.match(/[゠-ヿ]+/g) || [];
-            const kanji = text.match(/[一-鿿]+/g) || [];
-            const english = text.match(/[a-zA-Z]+/gi) || [];
-
-            return [...hiragana, ...katakana, ...kanji, ...english];
+            return text.toLowerCase().split(/[、。\s　]+/).filter(w => w.length > 0);
         }
 
-        // テキスト類似度計算（簡易版）
-        function calculateSimilarity(query, text) {
-            const queryWords = extractWords(query.toLowerCase());
-            const textWords = extractWords(text.toLowerCase());
-
-            if (queryWords.length === 0) return 0;
+        function calculateSimilarity(q, text) {
+            const qWords = extractWords(q);
+            const tWords = extractWords(text);
+            if (qWords.length === 0) return 0;
 
             let matches = 0;
-            for (const qWord of queryWords) {
-                for (const tWord of textWords) {
-                    if (tWord.includes(qWord) || qWord.includes(tWord)) {
-                        matches++;
-                        break;
-                    }
+            for (const qw of qWords) {
+                if (tWords.some(tw => tw.includes(qw) || qw.includes(tw))) {
+                    matches++;
                 }
             }
-
-            return matches / queryWords.length;
+            return matches / qWords.length;
         }
 
-        // 質問から関連FAQを検索
-        function searchRelatedFAQs(query) {
-            if (!query.trim()) {
-                return [];
-            }
+        function searchQuery() {
+            const query = document.getElementById('inquiry-input').value;
+            if (!query.trim()) return;
 
-            const results = faqs.map(faq => ({
-                faq,
-                score: (calculateSimilarity(query, faq.question) * 0.7) +
-                       (calculateSimilarity(query, faq.answer) * 0.3)
-            }))
-            .filter(item => item.score > 0)
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 5);
+            const results = faqs
+                .map(faq => ({
+                    faq,
+                    score: calculateSimilarity(query, faq.question) * 0.7 + calculateSimilarity(query, faq.answer) * 0.3
+                }))
+                .filter(r => r.score > 0)
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 5);
 
-            return results;
-        }
-
-        // 検索結果を表示
-        function displaySearchResults(query, results) {
             const container = document.getElementById('results-container');
-
             if (results.length === 0) {
                 container.innerHTML = '<div class="no-results">関連するFAQが見つかりませんでした。別の質問で試してみてください。</div>';
-                container.classList.add('show');
                 return;
             }
 
             container.innerHTML = '<h4 style="color: var(--primary-color); margin-bottom: 15px;">📌 関連するFAQ</h4>' +
-                results.map((item, index) => `
-                    <div class="result-item">
-                        <div class="result-score">関連度: ${Math.round(item.score * 100)}%</div>
-                        <div class="result-question">${escapeHtml(item.faq.question)}</div>
-                        <div class="result-answer">${escapeHtml(item.faq.answer)}</div>
-                        <div class="category-badge">${escapeHtml(item.faq.category)}</div>
-                        ${apiKey ? `<button class="btn btn-secondary btn-small" id="ai-btn-${index}" style="margin-top: 10px;">💡 AIで詳しく説明</button>` : ''}
+                results.map(r => `<div class="result-item"><div class="result-score">関連度: ${Math.round(r.score * 100)}%</div><div class="result-question">${r.faq.question}</div><div class="result-answer">${r.faq.answer}</div><div class="category-badge">${r.faq.category}</div></div>`).join('');
+        }
+
+        function init() {
+            generateSampleFAQs();
+
+            document.getElementById('total-faqs').textContent = faqs.length;
+            document.getElementById('total-categories').textContent = CATEGORIES.length;
+
+            const faqContainer = document.getElementById('faq-container');
+            faqContainer.innerHTML = faqs.map(faq => `
+                <div class="faq-item" onclick="this.classList.toggle('expanded')">
+                    <div class="faq-question">
+                        <div class="faq-question-text">${faq.question}</div>
+                        <div class="faq-toggle">▼</div>
                     </div>
-                `).join('');
+                    <div class="faq-answer">
+                        ${faq.answer}
+                        <div class="category-badge">${faq.category}</div>
+                    </div>
+                </div>
+            `).join('');
 
-            // イベントハンドラーを動的に追加
-            results.forEach((item, index) => {
-                const btn = document.getElementById(`ai-btn-${index}`);
-                if (btn) {
-                    btn.addEventListener('click', () => generateAIResponse(item.faq.question, item.faq.answer));
-                }
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const items = document.querySelectorAll('.faq-item');
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(term) ? '' : 'none';
+                });
             });
 
-            container.classList.add('show');
-        }
-
-        // Claude APIで回答を生成
-        async function generateAIResponse(faqQuestion, faqAnswer) {
-            if (!apiKey) {
-                showInquiryAlert('APIキーを設定してください', 'error');
-                return;
-            }
-
-            const query = document.getElementById('inquiry-input').value;
-            const resultsContainer = document.getElementById('results-container');
-
-            let aiResponseDiv = document.querySelector('.ai-response');
-            if (!aiResponseDiv) {
-                aiResponseDiv = document.createElement('div');
-                aiResponseDiv.className = 'ai-response';
-                resultsContainer.appendChild(aiResponseDiv);
-            }
-
-            aiResponseDiv.innerHTML = '<h4>🤖 AI回答を生成中...</h4><div class="loading">処理中</div>';
-
-            try {
-                const response = await fetch('https://api.anthropic.com/v1/messages', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'x-api-key': apiKey,
-                        'anthropic-version': '2023-06-01'
-                    },
-                    body: JSON.stringify({
-                        model: 'claude-3-5-sonnet-20241022',
-                        max_tokens: 1024,
-                        messages: [{
-                            role: 'user',
-                            content: `キノッピの家の新入社員向けQ&Aシステムです。
-
-新入社員からの質問: "${query}"
-
-関連するFAQ:
-質問: ${faqQuestion}
-回答: ${faqAnswer}
-
-この質問に対して、FAQの内容を基に、より詳しく、わかりやすく説明してください。日本語で、新入社員向けの親切な説明をお願いします。`
-                        })
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                const aiResponse = data.content[0].text;
-
-                aiResponseDiv.innerHTML = `
-                    <h4>🤖 AI回答</h4>
-                    <div class="ai-response-text">${escapeHtml(aiResponse).replace(/\n/g, '<br>')}</div>
-                `;
-            } catch (error) {
-                aiResponseDiv.innerHTML = `
-                    <h4>⚠️ エラー</h4>
-                    <div class="ai-response-text">API呼び出しに失敗しました: ${escapeHtml(error.message)}</div>
-                `;
-            }
-        }
-
-        // 質問パネル用アラート表示
-        function showInquiryAlert(message, type) {
-            const container = document.getElementById('results-container');
-            const alertDiv = document.createElement('div');
-            alertDiv.className = `alert alert-${type}`;
-            alertDiv.textContent = message;
-            container.insertBefore(alertDiv, container.firstChild);
-
-            setTimeout(() => {
-                alertDiv.remove();
-            }, 3000);
-        }
-
-        // イベントリスナー設定
-        function setupEventListeners() {
-            // タブ切り替え
             document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    if (!btn.dataset.category) {
-                        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const tab = btn.dataset.tab;
-                        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-                        document.getElementById(tab).classList.add('active');
-
-                        // 質問タブで設定パネルの表示を更新
-                        if (tab === 'inquiry' && apiKey) {
-                            document.getElementById('api-settings').style.display = 'block';
-                        }
-                    }
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.tab).classList.add('active');
                 });
-            });
-
-            // 検索機能
-            document.getElementById('search-input').addEventListener('input', applyFilters);
-
-            // 管理画面ボタン
-            document.getElementById('add-faq-btn').addEventListener('click', addFAQ);
-            document.getElementById('reset-form-btn').addEventListener('click', resetForm);
-
-            // 質問パネルのイベントリスナー
-            document.getElementById('search-btn').addEventListener('click', () => {
-                const query = document.getElementById('inquiry-input').value;
-                const results = searchRelatedFAQs(query);
-                displaySearchResults(query, results);
             });
 
             document.getElementById('inquiry-input').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    const query = document.getElementById('inquiry-input').value;
-                    const results = searchRelatedFAQs(query);
-                    displaySearchResults(query, results);
-                }
+                if (e.key === 'Enter') searchQuery();
             });
-
-            // APIキー設定
-            document.getElementById('save-key-btn').addEventListener('click', () => {
-                const keyInput = document.getElementById('api-key-input');
-                const key = keyInput.value.trim();
-
-                if (!key.startsWith('sk-')) {
-                    alert('APIキーは「sk-」で始まる必要があります');
-                    return;
-                }
-
-                localStorage.setItem('claude_api_key', key);
-                apiKey = key;
-                alert('APIキーを保存しました');
-                keyInput.value = '';
-            });
-
-            // APIキーがあれば設定パネルを表示
-            if (apiKey) {
-                document.getElementById('api-settings').style.display = 'block';
-            }
         }
 
-        // 初期化実行
         init();
     </script>
 </body>
