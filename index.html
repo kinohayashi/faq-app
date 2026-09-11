@@ -323,6 +323,141 @@
             color: #999;
         }
 
+        .inquiry-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .inquiry-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .inquiry-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .inquiry-input input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .inquiry-input input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .inquiry-input button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .inquiry-input button:hover {
+            background-color: #6d2d2d;
+        }
+
+        .results-container {
+            display: none;
+        }
+
+        .results-container.show {
+            display: block;
+        }
+
+        .result-item {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .result-score {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .result-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .result-answer {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ai-response {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4a90e2;
+            margin-top: 20px;
+        }
+
+        .ai-response h4 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-response-text {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .loading {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .loading::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -404,6 +539,7 @@
         <!-- タブ切り替え -->
         <div class="tabs">
             <button class="tab-button active" data-tab="viewer">📖 FAQ を見る</button>
+            <button class="tab-button" data-tab="inquiry">💬 質問する</button>
             <button class="tab-button" data-tab="admin">⚙️ 管理画面</button>
         </div>
 
@@ -435,6 +571,31 @@
 
             <!-- FAQ一覧 -->
             <div id="faq-container" class="faq-list"></div>
+        </div>
+
+        <!-- 質問相談パネル -->
+        <div id="inquiry" class="content">
+            <div class="inquiry-section">
+                <h3>🤔 質問から回答を検索</h3>
+                <p style="color: #666; margin-bottom: 15px;">わからないことを質問すると、蓄積されたFAQから関連する回答を自動で見つけます。</p>
+
+                <div class="inquiry-input">
+                    <input type="text" id="inquiry-input" placeholder="例）給与体系について教えてください / リモートワークは可能ですか？" >
+                    <button id="search-btn">検索</button>
+                </div>
+
+                <div id="results-container" class="results-container"></div>
+            </div>
+
+            <div id="ai-settings" style="background-color: var(--light-bg); padding: 15px; border-radius: 8px; margin-bottom: 20px; display: none;">
+                <h4 style="color: var(--primary-color); margin-bottom: 10px;">⚡ AI回答設定（オプション）</h4>
+                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Claude AIを使ってさらに詳しい回答を生成できます。APIキーを入力してください。</p>
+                <div style="display: flex; gap: 10px;">
+                    <input type="password" id="api-key-input" placeholder="Claude API キー（sk-で始まる）" style="flex: 1; padding: 10px; border: 2px solid var(--border-color); border-radius: 5px;">
+                    <button id="save-key-btn" class="btn btn-secondary">保存</button>
+                </div>
+                <p style="color: #999; font-size: 12px; margin-top: 10px;">※キーはブラウザに保存されます。アカウント設定から削除できます。</p>
+            </div>
         </div>
 
         <!-- 管理画面 -->
@@ -619,6 +780,7 @@
         let filteredFaqs = [];
         let currentCategory = 'all';
         let viewedCount = new Set();
+        let apiKey = localStorage.getItem('claude_api_key') || '';
 
         // 初期化
         function init() {
@@ -839,6 +1001,156 @@
             return div.innerHTML;
         }
 
+        // テキストから日本語・英数字を抽出
+        function extractWords(text) {
+            const words = [];
+            const hiragana = text.match(/[぀-ゟ]+/g) || [];
+            const katakana = text.match(/[゠-ヿ]+/g) || [];
+            const kanji = text.match(/[一-鿿]+/g) || [];
+            const english = text.match(/[a-zA-Z]+/gi) || [];
+
+            return [...hiragana, ...katakana, ...kanji, ...english];
+        }
+
+        // テキスト類似度計算（簡易版）
+        function calculateSimilarity(query, text) {
+            const queryWords = extractWords(query.toLowerCase());
+            const textWords = extractWords(text.toLowerCase());
+
+            if (queryWords.length === 0) return 0;
+
+            let matches = 0;
+            for (const qWord of queryWords) {
+                for (const tWord of textWords) {
+                    if (tWord.includes(qWord) || qWord.includes(tWord)) {
+                        matches++;
+                        break;
+                    }
+                }
+            }
+
+            return matches / queryWords.length;
+        }
+
+        // 質問から関連FAQを検索
+        function searchRelatedFAQs(query) {
+            if (!query.trim()) {
+                return [];
+            }
+
+            const results = faqs.map(faq => ({
+                faq,
+                score: (calculateSimilarity(query, faq.question) * 0.7) +
+                       (calculateSimilarity(query, faq.answer) * 0.3)
+            }))
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5);
+
+            return results;
+        }
+
+        // 検索結果を表示
+        function displaySearchResults(query, results) {
+            const container = document.getElementById('results-container');
+
+            if (results.length === 0) {
+                container.innerHTML = '<div class="no-results">関連するFAQが見つかりませんでした。別の質問で試してみてください。</div>';
+                container.classList.add('show');
+                return;
+            }
+
+            container.innerHTML = '<h4 style="color: var(--primary-color); margin-bottom: 15px;">📌 関連するFAQ</h4>' +
+                results.map(item => `
+                    <div class="result-item">
+                        <div class="result-score">関連度: ${Math.round(item.score * 100)}%</div>
+                        <div class="result-question">${escapeHtml(item.faq.question)}</div>
+                        <div class="result-answer">${escapeHtml(item.faq.answer)}</div>
+                        <div class="category-badge">${escapeHtml(item.faq.category)}</div>
+                        ${apiKey ? `<button class="btn btn-secondary btn-small" onclick="generateAIResponse('${escapeHtml(item.faq.question)}', '${escapeHtml(item.faq.answer)}')" style="margin-top: 10px;">💡 AIで詳しく説明</button>` : ''}
+                    </div>
+                `).join('');
+
+            container.classList.add('show');
+        }
+
+        // Claude APIで回答を生成
+        async function generateAIResponse(faqQuestion, faqAnswer) {
+            if (!apiKey) {
+                showInquiryAlert('APIキーを設定してください', 'error');
+                return;
+            }
+
+            const query = document.getElementById('inquiry-input').value;
+            const resultsContainer = document.getElementById('results-container');
+
+            let aiResponseDiv = document.querySelector('.ai-response');
+            if (!aiResponseDiv) {
+                aiResponseDiv = document.createElement('div');
+                aiResponseDiv.className = 'ai-response';
+                resultsContainer.appendChild(aiResponseDiv);
+            }
+
+            aiResponseDiv.innerHTML = '<h4>🤖 AI回答を生成中...</h4><div class="loading">処理中</div>';
+
+            try {
+                const response = await fetch('https://api.anthropic.com/v1/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                        'anthropic-version': '2023-06-01'
+                    },
+                    body: JSON.stringify({
+                        model: 'claude-3-5-sonnet-20241022',
+                        max_tokens: 1024,
+                        messages: [{
+                            role: 'user',
+                            content: `キノッピの家の新入社員向けQ&Aシステムです。
+
+新入社員からの質問: "${query}"
+
+関連するFAQ:
+質問: ${faqQuestion}
+回答: ${faqAnswer}
+
+この質問に対して、FAQの内容を基に、より詳しく、わかりやすく説明してください。日本語で、新入社員向けの親切な説明をお願いします。`
+                        })
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const aiResponse = data.content[0].text;
+
+                aiResponseDiv.innerHTML = `
+                    <h4>🤖 AI回答</h4>
+                    <div class="ai-response-text">${escapeHtml(aiResponse).replace(/\n/g, '<br>')}</div>
+                `;
+            } catch (error) {
+                aiResponseDiv.innerHTML = `
+                    <h4>⚠️ エラー</h4>
+                    <div class="ai-response-text">API呼び出しに失敗しました: ${escapeHtml(error.message)}</div>
+                `;
+            }
+        }
+
+        // 質問パネル用アラート表示
+        function showInquiryAlert(message, type) {
+            const container = document.getElementById('results-container');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.textContent = message;
+            container.insertBefore(alertDiv, container.firstChild);
+
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 3000);
+        }
+
         // イベントリスナー設定
         function setupEventListeners() {
             // タブ切り替え
@@ -850,6 +1162,11 @@
                         const tab = btn.dataset.tab;
                         document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
                         document.getElementById(tab).classList.add('active');
+
+                        // 質問タブで設定パネルの表示を更新
+                        if (tab === 'inquiry' && apiKey) {
+                            document.getElementById('api-settings').style.display = 'block';
+                        }
                     }
                 });
             });
@@ -860,6 +1177,42 @@
             // 管理画面ボタン
             document.getElementById('add-faq-btn').addEventListener('click', addFAQ);
             document.getElementById('reset-form-btn').addEventListener('click', resetForm);
+
+            // 質問パネルのイベントリスナー
+            document.getElementById('search-btn').addEventListener('click', () => {
+                const query = document.getElementById('inquiry-input').value;
+                const results = searchRelatedFAQs(query);
+                displaySearchResults(query, results);
+            });
+
+            document.getElementById('inquiry-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const query = document.getElementById('inquiry-input').value;
+                    const results = searchRelatedFAQs(query);
+                    displaySearchResults(query, results);
+                }
+            });
+
+            // APIキー設定
+            document.getElementById('save-key-btn').addEventListener('click', () => {
+                const keyInput = document.getElementById('api-key-input');
+                const key = keyInput.value.trim();
+
+                if (!key.startsWith('sk-')) {
+                    alert('APIキーは「sk-」で始まる必要があります');
+                    return;
+                }
+
+                localStorage.setItem('claude_api_key', key);
+                apiKey = key;
+                alert('APIキーを保存しました');
+                keyInput.value = '';
+            });
+
+            // APIキーがあれば設定パネルを表示
+            if (apiKey) {
+                document.getElementById('api-settings').style.display = 'block';
+            }
         }
 
         // 初期化実行
